@@ -1,8 +1,8 @@
 # Image Charts Node.js Library
 
-The ImageCharts Node library provides convenient access to the ImageCharts API from applications written in server-side JavaScript.
+The ImageCharts Node library provides convenient access to the [ImageCharts API](https://documentation.image-charts.com/) from applications written in server-side JavaScript.
 
-*NOTE: This has not been tested on Windows*
+*NOTE: This has not been tested on Windows or the browser*
 
 ## Installation
 
@@ -126,58 +126,58 @@ imageCharts.agent('<agent>')
 #### Bar
 
 ```js
-	imageCharts.bar({
-		size:[700,700],
-		data:[40,60]
-	});
+imageCharts.bar({
+	size:[700,700],
+	data:[40,60]
+});
 ```
 #### Bar Horizontal
 
 ```js
-	imageCharts.barHorizontal({
-		size:[700,700],
-		data:[40,60]
-	});
+imageCharts.barHorizontal({
+	size:[700,700],
+	data:[40,60]
+});
 ```
 #### Bubble
 
 ```js
-	imageCharts.bubble({
-		size:[700,700],
-		data:[40,60]
-	});
+imageCharts.bubble({
+	size:[700,700],
+	data:[40,60]
+});
 ```
 #### Doughnut
 
 ```js
-	imageCharts.doughnut({
-		size:[700,700],
-		data:[40,60]
-	});
+imageCharts.doughnut({
+	size:[700,700],
+	data:[40,60]
+});
 ```
 #### Line
 
 ```js
-	imageCharts.line({
-		size:[700,700],
-		data:[40,60]
-	});
+imageCharts.line({
+	size:[700,700],
+	data:[40,60]
+});
 ```
 #### Pie
 
 ```js
-	imageCharts.pie({
-		size:[700,700],
-		data:[40,60]
-	});
+imageCharts.pie({
+	size:[700,700],
+	data:[40,60]
+});
 ```
 #### Polar
 
 ```js
-	imageCharts.polar({
-		size:[700,700],
-		data:[40,60]
-	});
+imageCharts.polar({
+	size:[700,700],
+	data:[40,60]
+});
 ```
 
 
