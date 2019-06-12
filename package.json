@@ -1,0 +1,46 @@
+{
+  "name": "image-charts",
+  "version": "0.0.0",
+  "description": "The ImageCharts Node library provides convenient access to the ImageCharts API.",
+  "main": "lib/image_charts.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "dependencies": {
+    "axios": "^0.19.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jwerre/image-charts.git"
+  },
+  "keywords": [
+    "chart",
+    "charts",
+    "image",
+    "imagecharts",
+    "png",
+    "jpg",
+    "jpeg",
+    "gif",
+    "animated",
+    "api",
+    "pie",
+    "bar",
+    "horizontal-bar",
+    "bubble",
+    "doughnut",
+    "line",
+    "polar"
+  ],
+  "author": "Jonah Werre <jonah@surveyplanet.com> (https://surveyplanet.com)",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/jwerre/image-charts/issues"
+  },
+  "homepage": "https://github.com/jwerre/image-charts#readme"
+}
