@@ -1,9 +1,10 @@
 const {ImageCharts} = require('../lib/image_charts');
 const imageCharts = require('../lib/image_charts')();
 const Resource = require('../lib/resource');
+const ImageChartsError = require('../lib/image_charts_error');
 const assert = require('assert');
 
-const {openImg} = require('./_utils');
+// const {openImg} = require('./_utils');
 
 const ARGS = {
 	size: [700,700],
@@ -155,6 +156,33 @@ describe('Chart Image', function() {
 
 		assert.ok(uri);
 		// return openImg(uri);
+
+	});
+
+	it('should not retrive a chart image since arguments are invalid', async function() {
+
+		let uri;
+		
+		const resource = new Resource(
+			{
+				protocol: ImageCharts.DEFAULT_PROTOCOL,
+				host: ImageCharts.DEFAULT_HOST,
+				path: ImageCharts.DEFAULT_PATH,
+			}, 
+			{
+				type: 'p',
+			},
+		);
+
+		try {
+			uri = await resource.buffer();
+		} catch (err) {
+			assert.fail(err);
+		}
+
+		assert.ok(uri);
+		assert.ok(uri instanceof ImageChartsError);
+		assert.equal(uri.status, 400);
 
 	});
 
