@@ -198,13 +198,13 @@ imageCharts.agent('<agent>')
 | insideLabel | [chli](https://documentation.image-charts.com/pie-charts/#inside-label) | String | `'100%'` | Label for the inside of a doughnut chart. |
 | seriesColors | [chco](https://documentation.image-charts.com/pie-charts/#series-colors) | Array | `['EA469E','03A9F4']` | Series colors for chart. |
 | legendLabels | [chdl](https://documentation.image-charts.com/reference/legend-text-and-style/) | Array | `['NASDAQ', 'FTSE100', 'DOW']` | Labels for chart legend |
-| legendPosition | [chdlp](https://documentation.image-charts.com/reference/legend-text-and-style/) | Array or String | `['r', 'r'`]| Label position and/or order of chart legend. |
+| legendPosition | [chdlp](https://documentation.image-charts.com/reference/legend-text-and-style/) | Array or String | `['r', 'r']` | Label position and/or order of chart legend. |
 | legendTextColorSize | [chdls](https://documentation.image-charts.com/reference/legend-text-and-style/) | Array | `['9e9e9e',17]` | Font color and size for chart legend labels. |
 | margins | [chma](https://documentation.image-charts.com/reference/chart-margin/) | Array | `[10,100,20,10]` | Margins for chart. |
 | axes | [chxt](https://documentation.image-charts.com/reference/chart-axis/) | Array | `['x','y']` | Display Values on chart axis. |
 | axisRange | [chxr](https://documentation.image-charts.com/reference/chart-axis/) | Array | `[1,-50,50]` |  Range of values that appear on chart axis. |
 | axisLabels | [chxl](https://documentation.image-charts.com/reference/chart-axis/) | Array | `['0:','Jan','Feb','March','April','May']` |  Custom axis labels. |
-| axisLabelColorSize | [chxs](https://documentation.image-charts.com/reference/chart-axis/) | Array | `[[0,'FF00FF',13],[1,'FF0000']]`|  Font size and color for axis labels |
+| axisLabelColorSize | [chxs](https://documentation.image-charts.com/reference/chart-axis/) | Array | `[[0,'FF00FF',13],[1,'FF0000']]` |  Font size and color for axis labels |
 | background | [chf](https://documentation.image-charts.com/reference/background-fill/) | Array | `['bg','s','EFEFEF']` |  Background color for chart |
 | animation | [chan](https://documentation.image-charts.com/reference/animation/) | Array | `[1200,'easeOutBack']` |  Animated gif properties |
 | format | [chof](https://documentation.image-charts.com/reference/output-format/) | String | `'.png'` |  Image format for chart |
@@ -266,7 +266,7 @@ Config file authentication is overwritten by authentication passed directly to t
 
 ### Environmental Variable Authentication
 
-If you'd like to store your API secret in a location other than your home folder, create the environmental variable `IMAGE_CHARTS_AUTH` that points to a valid json file.
+You can also save both your account id and api secret as an environmental variable.
 
 ```bash
 export IMAGE_CHARTS_ID="<your account id>"
