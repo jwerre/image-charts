@@ -12,9 +12,9 @@ const ARGS = {
 	title: 'Chart Title',
 	titleColorSize: ['FF0000', 18],
 	seriesColors: [
-		['656bb1', '3abce5', '77c043', 'fede78', 'f79d1d', 'e74e4e'],
+		['656bb1', '3abce5', '#77c043', 'fede78', 'f79d1d', 'e74e4e'],
 		['353c87', '1193bb', '4f9642', 'd5b13f', 'cc7928', 'bc2226'],
-		['a2a3c8', '7bd2f3', 'a8ce78', 'fce8a5', 'fab34e', 'f18082'],
+		['#a2a3c8', '#7bd2f3', '#a8ce78', '#fce8a5', '#fab34e', '#f18082'],
 	],
 	grid: [true, true, 0, 0],
 	markers: [
