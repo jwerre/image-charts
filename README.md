@@ -1,6 +1,6 @@
 # Image Charts Node.js Library
 
-The ImageCharts Node library provides convenient access to the [ImageCharts API](https://documentation.image-charts.com/) from applications written in server-side JavaScript.
+The ImageCharts Node library provides convenient access to the [ImageCharts API](https://documentation.image-charts.com) from applications written in server-side JavaScript.
 
 *NOTE: This has not been tested on Windows or the browser*
 
@@ -37,16 +37,19 @@ const imageCharts = require('image-charts')({
 		]
 	};
 
-	let pieChart;
+	const pieChart = await imageCharts.pie(args);
 
 	try {
-		pieChart = await imageCharts.pie(args);
+		pieChart.buffer(); // <Buffer 64 66 67 68 6a...
 	} catch (err) {
 		return Promise.reject(err);
 	}
 
-	pieChart.dataUri(); // data:image/png;base64,...
-	pieChart.buffer(); // <Buffer 64 66 67 68 6a...
+	try {
+		pieChart.dataUri(); // data:image/png;base64,...
+	} catch (err) {
+		return Promise.reject(err);
+	}
 
 })();
 
@@ -126,7 +129,7 @@ imageCharts.agent('<agent>')
 #### Bar
 
 ```js
-imageCharts.bar({
+const chart = imageCharts.bar({
 	size:[700,700],
 	data:[40,60]
 });
@@ -134,7 +137,7 @@ imageCharts.bar({
 #### Bar Horizontal
 
 ```js
-imageCharts.barHorizontal({
+const chart = imageCharts.barHorizontal({
 	size:[700,700],
 	data:[40,60]
 });
@@ -142,7 +145,7 @@ imageCharts.barHorizontal({
 #### Bubble
 
 ```js
-imageCharts.bubble({
+const chart = imageCharts.bubble({
 	size:[700,700],
 	data:[40,60]
 });
@@ -150,7 +153,7 @@ imageCharts.bubble({
 #### Doughnut
 
 ```js
-imageCharts.doughnut({
+const chart = imageCharts.doughnut({
 	size:[700,700],
 	data:[40,60]
 });
@@ -158,7 +161,7 @@ imageCharts.doughnut({
 #### Line
 
 ```js
-imageCharts.line({
+const chart = imageCharts.line({
 	size:[700,700],
 	data:[40,60]
 });
@@ -166,7 +169,7 @@ imageCharts.line({
 #### Pie
 
 ```js
-imageCharts.pie({
+const chart = imageCharts.pie({
 	size:[700,700],
 	data:[40,60]
 });
@@ -174,11 +177,37 @@ imageCharts.pie({
 #### Polar
 
 ```js
-imageCharts.polar({
+const chart = imageCharts.polar({
 	size:[700,700],
 	data:[40,60]
 });
 ```
+
+### Getting the chart
+
+Once the chart is instantiated retrieve the image with either `buffer` or `dataUri`. Both return a Promise.
+
+
+```js
+const chart = imageCharts.bar({
+	size:[700,700],
+	data:[40,60]
+});
+
+chart.buffer()
+	.then(function(img){
+		// <Buffer 64 66 67 68 6a...
+	})
+
+// or
+chart.dataUri()
+	.then(function(img){
+		// data:image/png;base64,...
+	})
+
+```
+
+
 
 
 ### Chart Method Options

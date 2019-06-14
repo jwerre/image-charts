@@ -4,13 +4,18 @@ const Resource = require('../lib/resource');
 const ImageChartsError = require('../lib/image_charts_error');
 const assert = require('assert');
 
-// const {openImg} = require('./_utils');
+const {openImg} = require('./_utils');
 
 const ARGS = {
 	size: [700,700],
-	data:[60, 40],
+	data:[[60, 40], [10, 30, 5, 8, 2, 40, 5], [20, 20, 20, 20, 20]],
 	title: 'Chart Title',
 	titleColorSize: ['FF0000', 18],
+	seriesColors: [
+		['656bb1', '3abce5', '77c043', 'fede78', 'f79d1d', 'e74e4e'],
+		['353c87', '1193bb', '4f9642', 'd5b13f', 'cc7928', 'bc2226'],
+		['a2a3c8', '7bd2f3', 'a8ce78', 'fce8a5', 'fab34e', 'f18082'],
+	],
 	grid: [true, true, 0, 0],
 	markers: [
 		['o','ff9900',0,-1,15.0]
@@ -38,12 +43,12 @@ describe('Chart Image', function() {
 	
 	it('should parse query arguments', async function() {
 		
-		const args = Resource.prototype._parseArgs(ARGS);
+		const args = Resource.prototype._parseArgs( Object.assign({}, ARGS) );
 
 		assert.deepStrictEqual( args, 
 			{
 				chs: '700x700',
-				chd: 'a:60,40',
+				chd: 'a:60,40|10,30,5,8,2,40,5|20,20,20,20,20',
 				chtt: 'Chart Title',
 				chts: 'FF0000,18',
 				chg: 'true,true,0,0',
@@ -59,6 +64,7 @@ describe('Chart Image', function() {
 				chxs: '0,FF00FF,13|1,FF0000',
 				chf: 'bg,s,EFEFEF',
 				chan: '1200,easeOutBack',
+				chco: '656bb1|3abce5|77c043|fede78|f79d1d|e74e4e,353c87|1193bb|4f9642|d5b13f|cc7928|bc2226,a2a3c8|7bd2f3|a8ce78|fce8a5|fab34e|f18082',
 				chof: '.png'
 			}
 		);
@@ -94,7 +100,7 @@ describe('Chart Image', function() {
 			{
 				type: 'p',
 				size: ARGS.size,
-				data: ARGS.data,
+				data: ARGS.data[0],
 			}
 		);
 
@@ -117,7 +123,7 @@ describe('Chart Image', function() {
 			{
 				type: 'p',
 				size: ARGS.size,
-				data: ARGS.data,
+				data: ARGS.data[0],
 			},
 		);
 
@@ -193,7 +199,7 @@ describe('Chart Image', function() {
 
 		chart = await imageCharts.barHorizontal({
 			size: ARGS.size,
-			data: ARGS.data,
+			data: ARGS.data[0],
 		});
 
 		try {
@@ -212,7 +218,7 @@ describe('Chart Image', function() {
 
 		chart = imageCharts.bar({
 			size: ARGS.size,
-			data: ARGS.data,
+			data: ARGS.data[0],
 		});
 
 		try {
@@ -231,7 +237,7 @@ describe('Chart Image', function() {
 
 		chart = imageCharts.bubble({
 			size: ARGS.size,
-			data: ARGS.data,
+			data: ARGS.data[0],
 		});
 
 		try {
@@ -250,9 +256,10 @@ describe('Chart Image', function() {
 
 		chart = imageCharts.doughnut({
 			size: ARGS.size,
-			data: ARGS.data,
+			data: ARGS.data[1],
+			seriesColors: ARGS.seriesColors[0]
 		});
-
+		
 		try {
 			uri = await chart.dataUri();
 		} catch (err) {
@@ -260,6 +267,10 @@ describe('Chart Image', function() {
 		}
 
 		assert.ok(uri);
+
+		// openImg(uri, {
+		// 	width: ARGS.size[0]/2
+		// });
 
 	});
 
@@ -269,7 +280,7 @@ describe('Chart Image', function() {
 
 		chart = imageCharts.line({
 			size: ARGS.size,
-			data: ARGS.data,
+			data: ARGS.data[0],
 		});
 
 		try {
@@ -288,7 +299,7 @@ describe('Chart Image', function() {
 
 		chart = imageCharts.pie({
 			size: ARGS.size,
-			data: ARGS.data,
+			data: ARGS.data[0],
 		});
 
 		try {
@@ -307,7 +318,8 @@ describe('Chart Image', function() {
 
 		chart = imageCharts.polar({
 			size: ARGS.size,
-			data: ARGS.data,
+			data: ARGS.data[0],
+			seriesColors: ARGS.seriesColors
 		});
 
 		try {
@@ -317,6 +329,11 @@ describe('Chart Image', function() {
 		}
 
 		assert.ok(uri);
+		
+		// openImg(uri, {
+		// 	width: ARGS.size[0]*.5,
+		// 	height: ARGS.size[1]*.5
+		// });
 
 	});
 

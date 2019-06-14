@@ -4,10 +4,9 @@ const { exec } = require('child_process');
 
 exports.openImg = async function (src, options={}) {
 	
-
 	let file = src;
 	
-	if (!options.openSource) {
+	if ( /^data:/.test(src) ) {
 
 		file = `/tmp/chart-${(new Date().getTime()).toString(36)}.html`;
 		
@@ -23,7 +22,7 @@ exports.openImg = async function (src, options={}) {
 		
 		img += '>';
 
-		await fs.promises.writeFile(file, img);
+		fs.writeFileSync(file, img);
 	}
 	
 	const cmd = `open -a "/Applications/Google Chrome.app" ${file}`;
