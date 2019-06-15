@@ -219,6 +219,7 @@ chart.dataUri()
 | dataFormat | [chds](https://documentation.image-charts.com/reference/data-format) | String | `'t'` | Dataset format for chart. Default: 'a' |
 | dataScaling | [chds](https://documentation.image-charts.com/reference/data-format/#text-format-with-custom-scaling) | Array[] | [ `[80,140]` ] | Datasets for chart. |
 | stacked | [bvs\|bhg](https://documentation.image-charts.com/bar-charts) | Boolean | `true` | Stacked view for bar and horizontal bar charts. |
+| lineStyle | [chls](https://documentation.image-charts.com/line-charts/#line-styles) | Array[] | `[3,6,3]` | Line thickness and solid/dashed style for line charts. |
 | title | [chtt](https://documentation.image-charts.com/reference/chart-title/) | String | `'Site+visitors+by+month'` | Text for chart title. |
 | titleColorSize | [chts](https://documentation.image-charts.com/reference/chart-title/) | Array | `['FF0000',20,'r']` | Color and font size for chart title. |
 | grid | [chg](https://documentation.image-charts.com/reference/grid-lines/) | Array | `[0,50,1,5]` | Solid or dotted grid lines for chart. |

@@ -257,7 +257,8 @@ describe('Chart Image', function() {
 		chart = imageCharts.doughnut({
 			size: ARGS.size,
 			data: ARGS.data[1],
-			seriesColors: ARGS.seriesColors[0]
+			seriesColors: ARGS.seriesColors[0],
+			insideLabel: '100%'
 		});
 		
 		try {
@@ -280,7 +281,10 @@ describe('Chart Image', function() {
 
 		chart = imageCharts.line({
 			size: ARGS.size,
-			data: ARGS.data[0],
+			data: ARGS.data[1],
+			seriesColors: 'ff0099',
+			markers: ['o','ff9900',0,-1,15.0],
+			lineStyle: [ 3, 3, 15 ],
 		});
 
 		try {
@@ -290,6 +294,10 @@ describe('Chart Image', function() {
 		}
 
 		assert.ok(uri);
+		
+		// return openImg(uri, {
+		// 	width: ARGS.size[0]/2
+		// });
 
 	});
 
