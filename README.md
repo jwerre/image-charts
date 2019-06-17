@@ -215,11 +215,12 @@ chart.dataUri()
 | Property | Docs | Type | Example | Description |
 | --- | --- | --- | --- | --- |
 | size | [chs](https://documentation.image-charts.com/reference/chart-size/) | Array | `[800, 500]` | Total width and height of the chart. |
-| data | [chd](https://documentation.image-charts.com/reference/data-format/) | Array[] | [ `[1,19,27,53,61,-1],[12,39,57,45,51,27] ]` | Datasets for chart. |
+| data | [chd](https://documentation.image-charts.com/reference/data-format/) | Array | `[ [1,19,27,53,61,-1],[12,39,57,45,51,27] ]` | Datasets for chart. |
 | dataFormat | [chds](https://documentation.image-charts.com/reference/data-format) | String | `'t'` | Dataset format for chart. Default: 'a' |
 | dataScaling | [chds](https://documentation.image-charts.com/reference/data-format/#text-format-with-custom-scaling) | Array[] | [ `[80,140]` ] | Datasets for chart. |
 | stacked | [bvs\|bhg](https://documentation.image-charts.com/bar-charts) | Boolean | `true` | Stacked view for bar and horizontal bar charts. |
-| lineStyle | [chls](https://documentation.image-charts.com/line-charts/#line-styles) | Array[] | `[3,6,3]` | Line thickness and solid/dashed style for line charts. |
+| lineStyle | [chls](https://documentation.image-charts.com/line-charts/#line-styles) | Array | `[3,6,3]` | Line thickness and solid/dashed style for line charts. |
+| hideAxis | [lc:nda](https://documentation.image-charts.com/reference/chart-axis/#visible-axes) | Boolean | `true` | Hide all axis lines for line chart. |
 | title | [chtt](https://documentation.image-charts.com/reference/chart-title/) | String | `'Site+visitors+by+month'` | Text for chart title. |
 | titleColorSize | [chts](https://documentation.image-charts.com/reference/chart-title/) | Array | `['FF0000',20,'r']` | Color and font size for chart title. |
 | grid | [chg](https://documentation.image-charts.com/reference/grid-lines/) | Array | `[0,50,1,5]` | Solid or dotted grid lines for chart. |

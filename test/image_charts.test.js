@@ -25,7 +25,7 @@ const ARGS = {
 	legendTextColorSize: ['FF0000', 18],
 	labels: [ '60%', '40%' ],
 	margins: [10,100,20,],
-	axes: ['x','y'],
+	axis: ['x','y'],
 	axisRange: [1,0,100],
 	axisLabels: [
 		['0:', 'Jan', 'Feb', 'Mar', 'Apr'],
@@ -56,7 +56,7 @@ describe('Chart Image', function() {
 				chdl: 'Legend Item 1,Legend Item 2',
 				chdlp: 't,l',
 				chdls: 'FF0000,18',
-				chl: '60%,40%',
+				chl: '60%|40%',
 				chma: '10,100,20',
 				chxt: 'x,y',
 				chxr: '1,0,100',
@@ -281,10 +281,36 @@ describe('Chart Image', function() {
 
 		chart = imageCharts.line({
 			size: ARGS.size,
-			data: ARGS.data[1],
-			seriesColors: 'ff0099',
-			markers: ['o','ff9900',0,-1,15.0],
-			lineStyle: [ 3, 3, 15 ],
+			data:  [ 
+				[ 183, 165, 59, 103, 171, 76, 172, 103, 123, 159, 169, 171, 99, 45, 156, 1, 36, 3, 11, 183 ],
+				[ 28, 131, 29, 118, 183, 27, 105, 72, 153, 127, 67, 99, 160, 168, 45, 87, 58, 4, 66, 42, 45 ],
+				[ 21, 180, 156, 29, 113, 77, 42, 134, 172, 17, 121, 75, 105, 108, 100, 66, 65, 159, 63, 33, 129 ],
+			],
+			seriesColors: [
+				['ff0000'],
+				['00ff00'],
+				['0000ff'],
+			],
+			markers: [
+				[ 'o', 'ff0000', 0, -1, 25 ],
+				[ 'd', '00ff00', 1, -1, 25 ],
+				[ 's', '0000ff', 2, -1, 25 ],
+			],
+			lineStyle: [
+				[ 3, 3, 15 ],
+				[ 3, 0, 0 ],
+				[ 3, 1, 1 ],
+			],
+			grid: [ 0, 1, 0, 0 ],
+			axis: ['y'],
+			axisRange: [
+				2,0,500,10,
+			],
+			axisLabelColorSize: [
+				[ 0, '383f50', 20 ],
+				[ 1, 'FF00FF', 12 ],
+			],
+
 		});
 
 		try {
@@ -294,7 +320,7 @@ describe('Chart Image', function() {
 		}
 
 		assert.ok(uri);
-		
+
 		// return openImg(uri, {
 		// 	width: ARGS.size[0]/2
 		// });
@@ -326,8 +352,11 @@ describe('Chart Image', function() {
 
 		chart = imageCharts.polar({
 			size: ARGS.size,
-			data: ARGS.data[0],
-			seriesColors: ARGS.seriesColors
+			data: [ 183, 165, 59, 103, 171, 76],
+			labels: ['Apple', 'Peach', 'Banana', 'Orange', 'Pineapple', 'Kiwi'],
+			// add some opacity so labels can be seen
+			seriesColors: ARGS.seriesColors[0].map( (color) => color+'66'),
+			axis: ['x'],
 		});
 
 		try {
@@ -338,9 +367,8 @@ describe('Chart Image', function() {
 
 		assert.ok(uri);
 		
-		// openImg(uri, {
-		// 	width: ARGS.size[0]*.5,
-		// 	height: ARGS.size[1]*.5
+		// return openImg(uri, {
+		// 	width: ARGS.size[0]/2
 		// });
 
 	});
