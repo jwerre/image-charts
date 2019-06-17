@@ -275,16 +275,16 @@ describe('Chart Image', function() {
 
 	});
 
-	it('should retrive a line chart image', async function() {
+	it.only('should retrive a line chart image', async function() {
 		
 		let uri, chart;
 
 		chart = imageCharts.line({
 			size: ARGS.size,
 			data:  [ 
-				[ 183, 165, 59, 103, 171, 76, 172, 103, 123, 159, 169, 171, 99, 45, 156, 1, 36, 3, 11, 183 ],
-				[ 28, 131, 29, 118, 183, 27, 105, 72, 153, 127, 67, 99, 160, 168, 45, 87, 58, 4, 66, 42, 45 ],
-				[ 21, 180, 156, 29, 113, 77, 42, 134, 172, 17, 121, 75, 105, 108, 100, 66, 65, 159, 63, 33, 129 ],
+				[ 183, 165, 59, 103, 171, 76, 172, 103, 123, 159, 169, 171],
+				[ 28, 131, 29, 118, 183, 27, 105, 72, 153, 127, 67, 99],
+				[ 21, 180, 156, 29, 113, 77, 42, 134, 172, 17, 121, 75],
 			],
 			seriesColors: [
 				['ff0000'],
@@ -302,13 +302,28 @@ describe('Chart Image', function() {
 				[ 3, 1, 1 ],
 			],
 			grid: [ 0, 1, 0, 0 ],
-			axis: ['y'],
+			axis: ['x', 'y'],
+			axisLabels: [
+				'0:',
+				'Jan',
+				'Feb',
+				'Mar',
+				'Apr',
+				'May',
+				'Jun',
+				'Jul',
+				'Aug',
+				'Sep',
+				'Oct',
+				'Nov',
+				'Dec',
+			],
 			axisRange: [
 				2,0,500,10,
 			],
 			axisLabelColorSize: [
 				[ 0, '383f50', 20 ],
-				[ 1, 'FF00FF', 12 ],
+				[ 1, '0000FF', 20 ],
 			],
 
 		});
@@ -321,9 +336,9 @@ describe('Chart Image', function() {
 
 		assert.ok(uri);
 
-		// return openImg(uri, {
-		// 	width: ARGS.size[0]/2
-		// });
+		return openImg(uri, {
+			width: ARGS.size[0]/2
+		});
 
 	});
 
