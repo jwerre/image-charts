@@ -284,7 +284,7 @@ const imageCharts = new ImageCharts({
 If you don't pass your API secret directly to the module it will automatically look for it in an `.image_charts.json` file in your home directory. Be sure that the file is valid JSON and has the value `account` and `secret`.
 
 ```bash
-'{"account": "<your account id>", "secret": "<your api secret>"}' > ~/.image_charts.json
+echo '{"account": "<your account id>", "secret": "<your api secret>"}' > ~/.image_charts.json
 ```
 
 If you'd like to store your API secret in a location other than your home folder, create the environmental variable `IMAGE_CHARTS_AUTH` that points to a valid json file.

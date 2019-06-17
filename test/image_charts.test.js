@@ -275,7 +275,7 @@ describe('Chart Image', function() {
 
 	});
 
-	it.only('should retrive a line chart image', async function() {
+	it('should retrive a line chart image', async function() {
 		
 		let uri, chart;
 
@@ -336,9 +336,9 @@ describe('Chart Image', function() {
 
 		assert.ok(uri);
 
-		return openImg(uri, {
-			width: ARGS.size[0]/2
-		});
+		// return openImg(uri, {
+		// 	width: ARGS.size[0]/2
+		// });
 
 	});
 
