@@ -1,6 +1,6 @@
 {
   "name": "image-charts",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "The ImageCharts Node library provides convenient access to the ImageCharts API.",
   "main": "lib/image_charts.js",
   "directories": {
