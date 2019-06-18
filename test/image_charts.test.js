@@ -53,14 +53,14 @@ describe('Chart Image', function() {
 				chts: 'FF0000,18',
 				chg: 'true,true,0,0',
 				chm: 'o,ff9900,0,-1,15',
-				chdl: 'Legend Item 1,Legend Item 2',
-				chdlp: 't,l',
+				chdl: 'Legend Item 1|Legend Item 2',
+				chdlp: 't|l',
 				chdls: 'FF0000,18',
 				chl: '60%|40%',
 				chma: '10,100,20',
 				chxt: 'x,y',
 				chxr: '1,0,100',
-				chxl: '0:,Jan,Feb,Mar,Apr',
+				chxl: '0:|Jan|Feb|Mar|Apr',
 				chxs: '0,FF00FF,13|1,FF0000',
 				chf: 'bg,s,EFEFEF',
 				chan: '1200,easeOutBack',
@@ -218,7 +218,40 @@ describe('Chart Image', function() {
 
 		chart = imageCharts.bar({
 			size: ARGS.size,
-			data: ARGS.data[0],
+			stacked: true,
+			data:  [ 
+				[ 28, 131, 29, 118],
+				[ 21, 180, 156, 29],
+			],
+			seriesColors: [
+				['ff0000'],
+				['00ff00'],
+				['0000ff'],
+			],
+			grid: [ 1, 1, 0, 0 ],
+			margins: [100, 0, 0, 100],
+			background: ['bg','s','EFEFEF'],
+			axis: ['x', 'y'],
+			axisRange: [
+				[1, -100, 500]
+			],
+			legendLables: [
+				'Yep',
+				'Nope',
+			],
+			legendPosition: ['b', 'r'],
+			legendTextColorSize: ['00FFFF', 14],
+			axisLabels: [
+				'0:',
+				'Apple',
+				'Orange',
+				'Preach',
+				'Banana',
+			],
+			axisLabelColorSize: [
+				[ 0, '00FF00', 20 ],
+				[ 1, 'FF0000', 20 ],
+			],
 		});
 
 		try {
@@ -228,6 +261,11 @@ describe('Chart Image', function() {
 		}
 
 		assert.ok(uri);
+
+		// return openImg(uri, {
+		// 	width: ARGS.size[0]/2
+		// });
+
 
 	});
 
@@ -317,9 +355,6 @@ describe('Chart Image', function() {
 				'Oct',
 				'Nov',
 				'Dec',
-			],
-			axisRange: [
-				2,0,500,10,
 			],
 			axisLabelColorSize: [
 				[ 0, '383f50', 20 ],
