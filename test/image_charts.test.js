@@ -104,7 +104,7 @@ describe('Chart Image', function() {
 			}
 		);
 
-		const url = resource._generateRquestUrl();
+		const url = resource.url;
 		assert.ok( /^https:\/\/image-charts.com\/chart\?cht=p&chs=700x700&chd=a%3A60%2C40&icac=1234567890&ichm=.+/.test(url) );
 
 	});
@@ -408,7 +408,7 @@ describe('Chart Image', function() {
 			seriesColors: ARGS.seriesColors[0].map( (color) => color+'66'),
 			axis: ['x'],
 		});
-
+		
 		try {
 			uri = await chart.dataUri();
 		} catch (err) {

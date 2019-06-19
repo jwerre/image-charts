@@ -129,67 +129,98 @@ imageCharts.agent('<agent>')
 #### Bar
 
 ```js
+
 const chart = imageCharts.bar({
 	size:[700,700],
 	data:[40,60]
 });
+
+chart.url // https://image-charts.com/chart/...
+
 ```
 #### Bar Horizontal
 
 ```js
+
 const chart = imageCharts.barHorizontal({
 	size:[700,700],
 	data:[40,60]
 });
+
+chart.url // https://image-charts.com/chart/...
+
 ```
 #### Bubble
 
 ```js
+
 const chart = imageCharts.bubble({
 	size:[700,700],
 	data:[40,60]
 });
+
+chart.url // https://image-charts.com/chart/...
+
 ```
 #### Doughnut
 
 ```js
+
 const chart = imageCharts.doughnut({
 	size:[700,700],
 	data:[40,60]
 });
+
+chart.url // https://image-charts.com/chart/...
+
 ```
 #### Line
 
 ```js
+
 const chart = imageCharts.line({
 	size:[700,700],
 	data:[40,60]
 });
+
+chart.url // https://image-charts.com/chart/...
+
 ```
 #### Pie
 
 ```js
+
 const chart = imageCharts.pie({
 	size:[700,700],
 	data:[40,60]
 });
+
+chart.url // https://image-charts.com/chart/...
+
 ```
 #### Polar
 
 ```js
+
 const chart = imageCharts.polar({
 	size:[700,700],
 	data:[40,60]
 });
+
+chart.url // https://image-charts.com/chart/...
+
 ```
 
-### Getting the chart
+### Download Chart
 
-Once the chart is instantiated retrieve the image with either `buffer` or `dataUri`. Both return a Promise.
+Once instantiated retrieve the chart image with either `buffer` or `dataUri`. Both return a Promise.
 
+
+### Buffer
 
 ```js
-const chart = imageCharts.bar({
+
+const chart = imageCharts.pie({
 	size:[700,700],
 	data:[40,60]
 });
@@ -199,7 +230,17 @@ chart.buffer()
 		// <Buffer 64 66 67 68 6a...
 	})
 
-// or
+```
+
+### Buffer
+
+```js
+
+const chart = imageCharts.bar({
+	size:[700,700],
+	data:[40,60]
+});
+
 chart.dataUri()
 	.then(function(img){
 		// data:image/png;base64,...
@@ -209,8 +250,7 @@ chart.dataUri()
 
 
 
-
-### Chart Method Options
+### Chart Options
 
 | Property | Docs | Type | Example | Description |
 | --- | --- | --- | --- | --- |
@@ -224,8 +264,8 @@ chart.dataUri()
 | title | [chtt](https://documentation.image-charts.com/reference/chart-title/) | String | `'Site+visitors+by+month'` | Text for chart title. |
 | titleColorSize | [chts](https://documentation.image-charts.com/reference/chart-title/) | Array | `['FF0000',20,'r']` | Color and font size for chart title. |
 | grid | [chg](https://documentation.image-charts.com/reference/grid-lines/) | Array | `[0,50,1,5]` | Solid or dotted grid lines for chart. |
-| markers | [chm](https://documentation.image-charts.com/reference/shape-markers/) | Array[] | `[['s','E4061C',0,-1,15.0],['B','FCECF4',0,0,0]]` | Graphical markers for all data points on chart. |
-| labels | [chl](https://documentation.image-charts.com/reference/shape-markers/) | Array | `['20°','20°','30°','40°','50°']` | Labels for chart slices, lines or bars. |
+| markers | [chm](https://documentation.image-charts.com/reference/shape-markers) | Array[] | `[['s','E4061C',0,-1,15.0],['B','FCECF4',0,0,0]]` | Graphical markers for all data points on chart. |
+| labels | [chl](https://documentation.image-charts.com/reference/shape-markers) | Array | `['20°','20°','30°','40°','50°']` | Labels for chart slices, lines or bars. |
 | insideLabel | [chli](https://documentation.image-charts.com/pie-charts/#inside-label) | String | `'100%'` | Label for the inside of a doughnut chart. |
 | seriesColors | [chco](https://documentation.image-charts.com/pie-charts/#series-colors) | Array | `['EA469E','03A9F4']` | Series colors for chart. |
 | legendLabels | [chdl](https://documentation.image-charts.com/reference/legend-text-and-style/) | Array | `['NASDAQ', 'FTSE100', 'DOW']` | Labels for chart legend |
