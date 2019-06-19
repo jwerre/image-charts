@@ -30,23 +30,26 @@ const imageCharts = require('image-charts')({
 			60,
 			40,
 		]
-		label: 'Hello World'
 		labels: [
 			'60%',
 			'40%',
+		],
+		seriesColors: [
+			'#FF0000',
+			'#00FF00',
 		]
 	};
 
-	const pieChart = await imageCharts.pie(args);
+	const pieChart = imageCharts.pie(args);
 
 	try {
-		pieChart.buffer(); // <Buffer 64 66 67 68 6a...
+		await pieChart.buffer(); // <Buffer 64 66 67 68 6a...
 	} catch (err) {
 		return Promise.reject(err);
 	}
 
 	try {
-		pieChart.dataUri(); // data:image/png;base64,...
+		await pieChart.dataUri(); // data:image/png;base64,...
 	} catch (err) {
 		return Promise.reject(err);
 	}
@@ -116,15 +119,7 @@ Set the api account id for Enterprise accounts.
 imageCharts.account('<account>')
 ```
 
-#### Agent
-
-Set the api user agent.
-
-```js
-imageCharts.agent('<agent>')
-```
-
-### Chart Methods
+### Instance Methods
 
 #### Bar
 
@@ -213,7 +208,7 @@ chart.url // https://image-charts.com/chart/...
 
 ### Download Chart
 
-Once instantiated retrieve the chart image with either `buffer` or `dataUri`. Both return a Promise.
+Once instantiated retrieve the chart image as a buffer or as a base64 encoded data URI. Both methods return a Promise.
 
 
 ### Buffer
@@ -232,7 +227,7 @@ chart.buffer()
 
 ```
 
-### Buffer
+### Data URI
 
 ```js
 
@@ -247,7 +242,6 @@ chart.dataUri()
 	})
 
 ```
-
 
 
 ### Chart Options
