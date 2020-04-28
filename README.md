@@ -21,7 +21,7 @@ const imageCharts = require('image-charts')({
 
 (async function(){
 
-	const args: {
+	const args = {
 		size: [
 			700,
 			100
@@ -29,7 +29,7 @@ const imageCharts = require('image-charts')({
 		data:[
 			60,
 			40,
-		]
+		],
 		labels: [
 			'60%',
 			'40%',
